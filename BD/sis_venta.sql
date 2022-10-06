@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-03-2021 a las 10:49:05
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Tiempo de generación: 06-10-2022 a las 06:30:24
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE  PROCEDURE `actualizar_precio_producto` (IN `n_cantidad` INT, IN `n_precio` DECIMAL(10,2), IN `codigo` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizar_precio_producto` (IN `n_cantidad` INT, IN `n_precio` DECIMAL(10,2), IN `codigo` INT)   BEGIN
 DECLARE nueva_existencia int;
 DECLARE nuevo_total decimal(10,2);
 DECLARE nuevo_precio decimal(10,2);
@@ -47,14 +47,14 @@ UPDATE producto SET existencia = nueva_existencia, precio = nuevo_precio WHERE c
 SELECT nueva_existencia, nuevo_precio;
 END$$
 
-CREATE  PROCEDURE `add_detalle_temp` (`codigo` INT, `cantidad` INT, `token_user` VARCHAR(50))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_detalle_temp` (`codigo` INT, `cantidad` INT, `token_user` VARCHAR(50))   BEGIN
 DECLARE precio_actual decimal(10,2);
 SELECT precio INTO precio_actual FROM producto WHERE codproducto = codigo;
 INSERT INTO detalle_temp(token_user, codproducto, cantidad, precio_venta) VALUES (token_user, codigo, cantidad, precio_actual);
 SELECT tmp.correlativo, tmp.codproducto, p.descripcion, tmp.cantidad, tmp.precio_venta FROM detalle_temp tmp INNER JOIN producto p ON tmp.codproducto = p.codproducto WHERE tmp.token_user = token_user;
 END$$
 
-CREATE  PROCEDURE `data` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `data` ()   BEGIN
 DECLARE usuarios int;
 DECLARE clientes int;
 DECLARE proveedores int;
@@ -70,12 +70,12 @@ SELECT usuarios, clientes, proveedores, productos, ventas;
 
 END$$
 
-CREATE  PROCEDURE `del_detalle_temp` (`id_detalle` INT, `token` VARCHAR(50))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `del_detalle_temp` (`id_detalle` INT, `token` VARCHAR(50))   BEGIN
 DELETE FROM detalle_temp WHERE correlativo = id_detalle;
 SELECT tmp.correlativo, tmp.codproducto, p.descripcion, tmp.cantidad, tmp.precio_venta FROM detalle_temp tmp INNER JOIN producto p ON tmp.codproducto = p.codproducto WHERE tmp.token_user = token;
 END$$
 
-CREATE  PROCEDURE `procesar_venta` (IN `cod_usuario` INT, IN `cod_cliente` INT, IN `token` VARCHAR(50))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procesar_venta` (IN `cod_usuario` INT, IN `cod_cliente` INT, IN `token` VARCHAR(50))   BEGIN
 DECLARE factura INT;
 DECLARE registros INT;
 DECLARE total DECIMAL(10,2);
@@ -201,264 +201,6 @@ CREATE TABLE `detalle_temp` (
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `entradas`
---
-
-CREATE TABLE `entradas` (
-  `correlativo` int(11) NOT NULL,
-  `codproducto` int(11) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `cantidad` int(11) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `usuario_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `nofactura` int(11) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `usuario` int(11) NOT NULL,
-  `codcliente` int(11) NOT NULL,
-  `totalfactura` decimal(10,2) NOT NULL,
-  `estado` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `factura`
---
-
-INSERT INTO `factura` (`nofactura`, `fecha`, `usuario`, `codcliente`, `totalfactura`, `estado`) VALUES
-(1, '2021-03-09 10:20:19', 1, 1, '550.00', 1),
-(2, '2021-03-09 10:30:47', 1, 1, '250.00', 1),
-(3, '2021-03-09 10:33:05', 1, 2, '13.00', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE `producto` (
-  `codproducto` int(11) NOT NULL,
-  `codigo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `proveedor` int(11) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `existencia` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`codproducto`, `codigo`, `descripcion`, `proveedor`, `precio`, `existencia`, `usuario_id`) VALUES
-(1, '12345', 'Naranja', 1, '50.00', 85, 1),
-(2, '321', 'Gaseosa', 1, '10.00', 0, 1),
-(3, '654', 'Galletas', 1, '16.00', 8, 1),
-(4, '987', 'Sandia', 1, '13.00', 3, 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedor`
---
-
-CREATE TABLE `proveedor` (
-  `codproveedor` int(11) NOT NULL,
-  `proveedor` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `contacto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `direccion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `usuario_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `proveedor`
---
-
-INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`) VALUES
-(1, 'Open', '123456', 925491523, 'Lima', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rol`
---
-
-CREATE TABLE `rol` (
-  `idrol` int(11) NOT NULL,
-  `rol` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `rol`
---
-
-INSERT INTO `rol` (`idrol`, `rol`) VALUES
-(1, 'Administrador'),
-(2, 'Vendedor');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `idusuario` int(11) NOT NULL,
-  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `clave` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol`) VALUES
-(1, 'Vida Informatico', 'vida@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-(6, 'Maria Perez Miranda', 'maria@gmail.com', 'maria', '263bce650e68ab4e23f28263760b9fa5', 1),
-(9, 'angel', 'angel@gmail.com', 'angel', 'f4f068e71e0d87bf0ad51e6214ab84e9', 2);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idcliente`);
-
---
--- Indices de la tabla `configuracion`
---
-ALTER TABLE `configuracion`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  ADD PRIMARY KEY (`correlativo`);
-
---
--- Indices de la tabla `detalle_temp`
---
-ALTER TABLE `detalle_temp`
-  ADD PRIMARY KEY (`correlativo`);
-
---
--- Indices de la tabla `entradas`
---
-ALTER TABLE `entradas`
-  ADD PRIMARY KEY (`correlativo`);
-
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`nofactura`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`codproducto`);
-
---
--- Indices de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  ADD PRIMARY KEY (`codproveedor`);
-
---
--- Indices de la tabla `rol`
---
-ALTER TABLE `rol`
-  ADD PRIMARY KEY (`idrol`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `configuracion`
---
-ALTER TABLE `configuracion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  MODIFY `correlativo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `detalle_temp`
---
-ALTER TABLE `detalle_temp`
-  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `entradas`
---
-ALTER TABLE `entradas`
-  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `factura`
---
-ALTER TABLE `factura`
-  MODIFY `nofactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `producto`
---
-ALTER TABLE `producto`
-  MODIFY `codproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  MODIFY `codproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `rol`
---
-ALTER TABLE `rol`
-  MODIFY `idrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
