@@ -38,7 +38,7 @@ if ($result_data > 0) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sistema de Venta Básico Gratis</title>
+	<title>Licoreria Alvarez</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="all,follow">
@@ -75,7 +75,7 @@ if ($result_data > 0) {
 			<div class="container-fluid d-flex align-items-center justify-content-between">
 				<div class="navbar-header">
 					<!-- Navbar Header--><a href="index.php" class="navbar-brand">
-						<div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Punto</strong><strong>Venta</strong></div>
+						<div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">LICORERIA</strong><strong>ALVAREZ</strong></div>
 						<div class="brand-text brand-sm"><strong class="text-primary">P</strong><strong>V</strong></div>
 					</a>
 					<!-- Sidebar Toggle Btn-->
@@ -138,7 +138,7 @@ if ($result_data > 0) {
 				</li>
 
 				<!-- Nav Item - Clientes Collapse Menu -->
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-users"></i>
 						<span>Clientes</span>
@@ -150,9 +150,9 @@ if ($result_data > 0) {
 							<a class="collapse-item" href="lista_cliente.php">Clientes</a>
 						</div>
 					</div>
-				</li>
+				</li>-->
 				<!-- Nav Item - Utilities Collapse Menu -->
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-hospital"></i>
 						<span>Proveedor</span>
@@ -164,7 +164,7 @@ if ($result_data > 0) {
 							<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
 						</div>
 					</div>
-				</li>
+				</li>-->
 				<?php if ($_SESSION['rol'] == 1) { ?>
 					<!-- Nav Item - Usuarios Collapse Menu -->
 					<li class="nav-item">
