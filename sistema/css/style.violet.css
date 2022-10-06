@@ -12,6 +12,11 @@ Dark Admin Bootstrap Template by Bootstrapious.com
 *     GENERAL STYLING 
 * ==========================================================
 */
+:root {
+  --color-fondo: white;
+  --color-fondo2: #2d3035;
+}
+
 body {
   position: relative;
 }
@@ -201,7 +206,7 @@ pre {
 
 .block {
   padding: 20px;
-  background: #2d3035;
+  background: var(--color-fondo);
   color: #8a8d93;
   margin-bottom: 30px;
 }
@@ -223,7 +228,7 @@ pre {
 
 .page-content {
   position: relative;
-  background: #22252a;
+  background: var(--color-fondo);
   min-height: 100vh;
   width: calc(100% - 280px);
   padding: 0;
@@ -236,7 +241,7 @@ pre {
 
 .page-header {
   padding: 20px 15px;
-  background: #2d3035;
+  background: var(--color-fondo);
   color: #8a8d93;
   margin-bottom: 30px;
 }
@@ -385,7 +390,7 @@ i[class*='icon-'] {
 * ==========================================================
 */
 nav.navbar {
-  background: #2d3035;
+  background: var(--color-fondo);
   color: #8a8d93;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -718,7 +723,7 @@ nav.navbar .dropdown .dropdown-menu.active {
 */
 nav#sidebar {
   width: 280px;
-  background: #2d3035;
+  background: var(--color-fondo);
   color: #6a6c70;
   border-right: 1px solid #34373d;
   /* shrinked navbar */
@@ -732,7 +737,7 @@ nav#sidebar a {
 
 
 nav#sidebar a[aria-expanded="true"] {
-  background: #34373d;
+  background: var(--color-fondo);
 }
 
 
