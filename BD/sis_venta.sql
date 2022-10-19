@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 06:30:24
--- Versión del servidor: 5.5.24-log
+-- Tiempo de generación: 19-10-2022 a las 05:40:10
+-- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -138,7 +138,8 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`idcliente`, `dni`, `nombre`, `telefono`, `direccion`, `usuario_id`) VALUES
 (1, 123456, 'Público en General', 0, 'S/D', 1),
-(2, 123789, 'Angel sifuentes', 925491523, 'Lima', 1);
+(2, 123789, 'Angel sifuentes', 925491523, 'Lima', 1),
+(3, 78945600, 'Saulito', 789456123, 'Av. Las Palmeras 15401', 1);
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `configuracion` (
 --
 
 INSERT INTO `configuracion` (`id`, `dni`, `nombre`, `razon_social`, `telefono`, `email`, `direccion`, `igv`) VALUES
-(1, 2580, 'Vida Informático', 'Vida Informático', 925491523, 'naju@vidainformatico.com', 'Lima - Perú', '1.18');
+(1, 1084489541, 'Licoreria Alvarez', 'Licoreria Alvarez', 941375534, 'lico@alvarez.com', 'Lima - Perú', '1.18');
 
 -- --------------------------------------------------------
 
@@ -186,7 +187,12 @@ INSERT INTO `detallefactura` (`correlativo`, `nofactura`, `codproducto`, `cantid
 (1, 1, 1, 10, '50.00'),
 (2, 1, 2, 5, '10.00'),
 (4, 2, 1, 5, '50.00'),
-(5, 3, 4, 1, '13.00');
+(5, 3, 4, 1, '13.00'),
+(6, 4, 6, 5, '20.00'),
+(7, 5, 6, 4, '20.00'),
+(8, 6, 6, 1, '20.00'),
+(9, 7, 6, 1, '20.00'),
+(10, 8, 6, 1, '20.00');
 
 -- --------------------------------------------------------
 
@@ -201,6 +207,271 @@ CREATE TABLE `detalle_temp` (
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entradas`
+--
+
+CREATE TABLE `entradas` (
+  `correlativo` int(11) NOT NULL,
+  `codproducto` int(11) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `cantidad` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `usuario_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `factura`
+--
+
+CREATE TABLE `factura` (
+  `nofactura` int(11) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `usuario` int(11) NOT NULL,
+  `codcliente` int(11) NOT NULL,
+  `totalfactura` decimal(10,2) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`nofactura`, `fecha`, `usuario`, `codcliente`, `totalfactura`, `estado`) VALUES
+(1, '2021-03-09 10:20:19', 1, 1, '550.00', 1),
+(2, '2021-03-09 10:30:47', 1, 1, '250.00', 1),
+(3, '2021-03-09 10:33:05', 1, 2, '13.00', 1),
+(4, '2022-10-18 22:24:14', 1, 3, '100.00', 1),
+(5, '2022-10-18 22:29:30', 1, 1, '80.00', 1),
+(6, '2022-10-18 22:31:28', 1, 1, '20.00', 1),
+(7, '2022-10-18 22:33:29', 1, 1, '20.00', 1),
+(8, '2022-10-18 22:38:23', 1, 1, '20.00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE `producto` (
+  `codproducto` int(11) NOT NULL,
+  `codigo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `proveedor` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `existencia` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`codproducto`, `codigo`, `descripcion`, `proveedor`, `precio`, `existencia`, `usuario_id`) VALUES
+(1, '12345', 'Gaseosa Coca Cola 600ml', 1, '3.00', 85, 1),
+(2, '321', 'Gaseosa Inca Cola 600ml', 1, '3.00', 0, 1),
+(3, '654', 'Gaseosa Pepsi 2L', 1, '7.00', 8, 1),
+(4, '987', 'Cigarro Lucky Sandia 10 unidades', 1, '12.00', 3, 1),
+(5, '5211', 'Cartavio 1L', 1, '40.00', 50, 1),
+(6, '5212', 'Vino Tabernero', 1, '20.00', 8, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `codproveedor` int(11) NOT NULL,
+  `proveedor` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `contacto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `direccion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`) VALUES
+(1, 'Open', '123456', 925491523, 'Lima', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `idrol` int(11) NOT NULL,
+  `rol` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`idrol`, `rol`) VALUES
+(1, 'Administrador'),
+(2, 'Vendedor');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `clave` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol`) VALUES
+(1, 'Vida Informatico', 'vida@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(6, 'Maria Perez Miranda', 'maria@gmail.com', 'maria', '263bce650e68ab4e23f28263760b9fa5', 1),
+(9, 'angel', 'angel@gmail.com', 'angel', 'f4f068e71e0d87bf0ad51e6214ab84e9', 2);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`idcliente`);
+
+--
+-- Indices de la tabla `configuracion`
+--
+ALTER TABLE `configuracion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `detallefactura`
+--
+ALTER TABLE `detallefactura`
+  ADD PRIMARY KEY (`correlativo`);
+
+--
+-- Indices de la tabla `detalle_temp`
+--
+ALTER TABLE `detalle_temp`
+  ADD PRIMARY KEY (`correlativo`);
+
+--
+-- Indices de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  ADD PRIMARY KEY (`correlativo`);
+
+--
+-- Indices de la tabla `factura`
+--
+ALTER TABLE `factura`
+  ADD PRIMARY KEY (`nofactura`);
+
+--
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`codproducto`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`codproveedor`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`idrol`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idusuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `configuracion`
+--
+ALTER TABLE `configuracion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `detallefactura`
+--
+ALTER TABLE `detallefactura`
+  MODIFY `correlativo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_temp`
+--
+ALTER TABLE `detalle_temp`
+  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `factura`
+--
+ALTER TABLE `factura`
+  MODIFY `nofactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `codproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `codproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `idrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
