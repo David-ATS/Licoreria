@@ -13,12 +13,13 @@ Dark Admin Bootstrap Template by Bootstrapious.com
 * ==========================================================
 */
 :root {
-  --color-fondo: black;
+  /*--color-fondo: black;*/
   --color-fondo2: #2d3035;
 }
 
 body {
   position: relative;
+  background-image: url("bg.jpg");
 }
 
 section {
@@ -29,10 +30,12 @@ a {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: inline-block;
+  
 }
 
 .dashtext-1 {
   color: #864DD9 !important;
+  
 }
 
 .dashtext-2 {
@@ -3401,6 +3404,7 @@ pre code {
 
 .card-body {
   padding: 1.25rem;
+  background-image: url("cart.jpg");
 }
 
 .card-title {
