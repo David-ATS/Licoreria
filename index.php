@@ -6,7 +6,7 @@ if (!empty($_SESSION['active'])) {
 } else {
   if (!empty($_POST)) {
     if (empty($_POST['usuario']) || empty($_POST['clave'])) {
-      $alert = '<div class="alert alert-danger" role="alert">
+      $alert = '<div style="color: red; class="alert alert-danger" role="alert">
   Ingrese su usuario y su clave
 </div>';
     } else {
@@ -40,25 +40,22 @@ if (!empty($_SESSION['active'])) {
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Vida Informatico</title>
-
-  <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="sistema/vendor/bootstrap/css/bootstrap.min.css">
-  <!-- Custom styles for this template-->
-  <link href="sistema/css/style.violet.css" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Login</title>
+<link href="sistema/view/css/form.css" rel="stylesheet" type="text/css" />
+<style>
+body {
+	font-family: Arial;
+	color: #333;
+	font-size: 0.95em;
+	background-image: url("sistema/view/images/bg.jpg");
+}
+</style>
 </head>
 
-<body class="bg-gradient-primary">
+<body>
 
-  <div class="container">
+  <div class="login-form-container">
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
@@ -69,26 +66,52 @@ if (!empty($_SESSION['active'])) {
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                <img src="sistema/img/logo.jpg" class="img-thumbnail">
+                <img src="sistema/img/logoLogin.jpg" class="img-thumbnail">
               </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Iniciar Sesión</h1>
+                    <h1 class="h4 text-gray-900 mb-4">BIENVENIDO</h1>
                   </div>
                   <form class="user" method="POST">
                     <?php echo isset($alert) ? $alert : ""; ?>
-                    <div class="form-group">
-                      <label for="">Usuario</label>
-                      <input type="text" class="form-control" placeholder="Usuario" name="usuario"></div>
-                    <div class="form-group">
-                      <label for="">Contraseña</label>
-                      <input type="password" class="form-control" placeholder="Contraseña" name="clave">
+                    <div class="field-column">
+                      <div>
+                        <label for="username">Usuario</label><span id="user_info"
+                          class="error-info"></span>
+                      </div>
+                      <div>
+                        <input name="usuario" id="usuario" type="text"
+                          class="demo-input-box" placeholder="Ingresa tu Usuario">
+                      </div>
                     </div>
-                    <input type="submit" value="Iniciar" class="btn btn-primary">
-                    <hr>
+                      <div class="field-column">
+                        <div>
+                          <label for="password">Contraseña</label><span id="password_info"
+                            class="error-info"></span>
+                        </div>
+                        <div>
+                          <input name="clave" id="password" type="password"
+                            class="demo-input-box" placeholder="Ingresa tu Contraseña">
+                        </div>
+                      </div>
+                    
+                    <div class=field-column>
+                      <div>
+                        <input type="submit" name="login" value="Iniciar Sesion" class="btnLogin"></span>
+                      </div>
+                    </div>
+                    <div class="form-nav-row">
+                      <a href="#" class="form-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="login-row form-nav-row">
+                      <a href="https://www.facebook.com/licoreriaAlvarezlurin"><img src="sistema/img/icon-facebook.png"
+                        class="signup-icon" /></a><a href="#"><img
+                        src="sistema/img/icon-twitter.png" class="signup-icon" /></a><a
+                        href="#"><img src="sistema/img/icon-linkedin.png"
+                        class="signup-icon" /></a>
+                    </div>
                   </form>
-                  <hr>
                 </div>
               </div>
             </div>
@@ -113,3 +136,4 @@ if (!empty($_SESSION['active'])) {
 </body>
 
 </html>
+

@@ -391,10 +391,10 @@ i[class*='icon-'] {
 */
 nav.navbar {
   background: var(--color-fondo);
-  color: #8a8d93;
+  color: white;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #34373d;
+  border-bottom: 1px solid orangered;
   z-index: 10;
 }
 
@@ -413,20 +413,24 @@ nav.navbar .sidebar-toggle {
 
 nav.navbar a {
   color: inherit;
+
 }
 
 nav.navbar .brand-text {
   display: none;
   font-weight: 700;
+  
 }
 
 nav.navbar .brand-text.visible {
   display: block;
+  
 }
 
 nav.navbar a.nav-link {
   padding: .5rem .3rem;
   position: relative;
+  
 }
 
 nav.navbar a.nav-link .badge {
@@ -441,15 +445,18 @@ nav.navbar a.nav-link .badge {
   position: absolute;
   top: 0;
   right: -10px;
+  
 }
 
 nav.navbar .messages-toggle,
 nav.navbar .tasks-toggle {
   margin-right: 15px;
+  
 }
 
 nav.navbar .menu-large {
   position: static !important;
+  
 }
 
 nav.navbar .search-panel {
@@ -738,6 +745,7 @@ nav#sidebar a {
 
 nav#sidebar a[aria-expanded="true"] {
   background: var(--color-fondo);
+  
 }
 
 

@@ -76,7 +76,7 @@ if ($result_data > 0) {
 				<div class="navbar-header">
 					<!-- Navbar Header--><a href="index.php" class="navbar-brand">
 						<div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">LICORERIA</strong><strong>ALVAREZ</strong></div>
-						<div class="brand-text brand-sm"><strong class="text-primary">P</strong><strong>V</strong></div>
+						<div class="brand-text brand-sm"><strong class="text-primary">L</strong><strong>A</strong></div>
 					</a>
 					<!-- Sidebar Toggle Btn-->
 					<button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
@@ -84,7 +84,7 @@ if ($result_data > 0) {
 				<h4><?php echo fechaPeru(); ?></h4>
 				<div class="right-menu list-inline no-margin-bottom">
 					<!-- Log out               -->
-					<div class="list-inline-item logout"> <a id="logout" href="salir.php" class="nav-link"> <span class="d-none d-sm-inline">Cerrar sessión </span><i class="icon-logout"></i></a></div>
+					<div class="list-inline-item logout"> <a id="logout" href="salir.php" class="nav-link"> <span class="d-none d-sm-inline">CERRAR SESIÓN     </span><i class="icon-logout"></i></a></div>
 				</div>
 			</div>
 		</nav>
@@ -94,7 +94,7 @@ if ($result_data > 0) {
 		<nav id="sidebar">
 			<!-- Sidebar Header-->
 			<div class="sidebar-header d-flex align-items-center">
-				<div class="avatar"><img src="img/logo.jpg" alt="..." class="img-fluid rounded-circle"></div>
+				<div class="avatar"><img src="img/logo2.jpg" alt="..." class="img-fluid rounded-circle"></div>
 				<div class="title">
 					<h1 class="h5"><?php echo $_SESSION['nombre']; ?></h1>
 					<p><?php if ($_SESSION['rol'] == 1) {
@@ -168,7 +168,7 @@ if ($result_data > 0) {
 				<?php if ($_SESSION['rol'] == 1) { ?>
 					<!-- Nav Item - Usuarios Collapse Menu -->
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true">
+						<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true" >
 							<i class="fas fa-user"></i>
 							<span>Usuarios</span>
 							<i class="fas fa-angle-down fa-lg float-right"></i>
