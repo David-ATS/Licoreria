@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2022 a las 05:40:10
+-- Tiempo de generación: 01-11-2022 a las 02:32:56
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -35,6 +35,9 @@ DECLARE pre_actual decimal(10,2);
 
 DECLARE actual_existencia int;
 DECLARE actual_precio decimal(10,2);
+
+DECLARE estado_actual int;
+DECLARE estado_nuevo int;
 
 SELECT precio, existencia INTO actual_precio, actual_existencia FROM producto WHERE codproducto = codigo;
 
@@ -129,17 +132,18 @@ CREATE TABLE `cliente` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(15) NOT NULL,
   `direccion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `usuario_id` int(11) NOT NULL
+  `usuario_id` int(11) NOT NULL,
+  `estado` char(1) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `dni`, `nombre`, `telefono`, `direccion`, `usuario_id`) VALUES
-(1, 123456, 'Público en General', 0, 'S/D', 1),
-(2, 123789, 'Angel sifuentes', 925491523, 'Lima', 1),
-(3, 78945600, 'Saulito', 789456123, 'Av. Las Palmeras 15401', 1);
+INSERT INTO `cliente` (`idcliente`, `dni`, `nombre`, `telefono`, `direccion`, `usuario_id`, `estado`) VALUES
+(1, 123456, 'Público en General', 0, 'S/D', 1, 'A'),
+(2, 123789, 'Angel sifuentes', 925491523, 'Lima', 1, 'A'),
+(3, 78945600, 'Saulito', 789456123, 'Av. Las Palmeras 15401', 1, 'A');
 
 -- --------------------------------------------------------
 
@@ -220,7 +224,8 @@ CREATE TABLE `entradas` (
   `fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `cantidad` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `usuario_id` int(11) NOT NULL
+  `usuario_id` int(11) NOT NULL,
+  `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -265,20 +270,21 @@ CREATE TABLE `producto` (
   `proveedor` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `existencia` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL
+  `usuario_id` int(11) NOT NULL,
+  `estado` char(1) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`codproducto`, `codigo`, `descripcion`, `proveedor`, `precio`, `existencia`, `usuario_id`) VALUES
-(1, '12345', 'Gaseosa Coca Cola 600ml', 1, '3.00', 85, 1),
-(2, '321', 'Gaseosa Inca Cola 600ml', 1, '3.00', 0, 1),
-(3, '654', 'Gaseosa Pepsi 2L', 1, '7.00', 8, 1),
-(4, '987', 'Cigarro Lucky Sandia 10 unidades', 1, '12.00', 3, 1),
-(5, '5211', 'Cartavio 1L', 1, '40.00', 50, 1),
-(6, '5212', 'Vino Tabernero', 1, '20.00', 8, 1);
+INSERT INTO `producto` (`codproducto`, `codigo`, `descripcion`, `proveedor`, `precio`, `existencia`, `usuario_id`, `estado`) VALUES
+(1, '001', 'Gaseosa Coca Cola 600ml', 1, '3.00', 85, 1, 'I'),
+(2, '002', 'Gaseosa Inca Cola 600ml', 1, '3.00', 0, 1, 'I'),
+(3, '003', 'Gaseosa Pepsi 2L', 1, '7.00', 8, 1, 'A'),
+(4, '004', 'Cigarro Lucky Sandia 10 unidades', 1, '12.00', 3, 1, 'A'),
+(5, '005', 'Cartavio 1L', 1, '40.00', 50, 1, 'A'),
+(6, '006', 'Vino Tabernero', 1, '20.00', 8, 1, 'A');
 
 -- --------------------------------------------------------
 
@@ -292,15 +298,17 @@ CREATE TABLE `proveedor` (
   `contacto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(11) NOT NULL,
   `direccion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `usuario_id` int(11) NOT NULL
+  `usuario_id` int(11) NOT NULL,
+  `estado` char(1) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`) VALUES
-(1, 'Open', '123456', 925491523, 'Lima', 1);
+INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `direccion`, `usuario_id`, `estado`) VALUES
+(1, 'Open', '123456', 925491524, 'Lima', 1, 'A'),
+(2, 'Ramirp', '10554477886', 4301557, 'AV. LAS PALMERAS', 1, 'A');
 
 -- --------------------------------------------------------
 
@@ -333,17 +341,19 @@ CREATE TABLE `usuario` (
   `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `clave` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `rol` int(11) NOT NULL
+  `rol` int(11) NOT NULL,
+  `estado` char(1) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol`) VALUES
-(1, 'Vida Informatico', 'vida@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-(6, 'Maria Perez Miranda', 'maria@gmail.com', 'maria', '263bce650e68ab4e23f28263760b9fa5', 1),
-(9, 'angel', 'angel@gmail.com', 'angel', 'f4f068e71e0d87bf0ad51e6214ab84e9', 2);
+INSERT INTO `usuario` (`idusuario`, `nombre`, `correo`, `usuario`, `clave`, `rol`, `estado`) VALUES
+(1, 'Saul Taipe', 'TaipeSaul@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, 'A'),
+(6, 'Maria Perez Miranda', 'maria@gmail.com', 'maria', '263bce650e68ab4e23f28263760b9fa5', 1, 'A'),
+(9, 'Diana ', 'Diana@gmail.com', 'Diana', 'f4f068e71e0d87bf0ad51e6214ab84e9', 2, 'A'),
+(10, 'Diego ', 'diego@gmail.com', 'diego', 'e10adc3949ba59abbe56e057f20f883e', 2, 'A');
 
 --
 -- Índices para tablas volcadas
@@ -435,7 +445,7 @@ ALTER TABLE `detallefactura`
 -- AUTO_INCREMENT de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
-  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `correlativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `entradas`
@@ -453,13 +463,13 @@ ALTER TABLE `factura`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `codproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `codproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `codproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -471,7 +481,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

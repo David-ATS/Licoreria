@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Productos</h1>
+		<h1 class="h3 mb-0 text-gray-800">Maestro de Productos</h1>
 		<a href="registro_producto.php" class="btn btn-primary">Nuevo</a>
 	</div>
 
@@ -19,6 +19,7 @@
 							<th>PRODUCTO</th>
 							<th>PRECIO</th>
 							<th>STOCK</th>
+							<th>ESTADO</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -37,15 +38,16 @@
 									<td><?php echo $data['descripcion']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
+									<td><?php echo $data['estado']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
 										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
+										<!--<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
+										</form>-->
 									</td>
 										<?php } ?>
 								</tr>

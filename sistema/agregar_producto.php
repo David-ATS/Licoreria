@@ -10,7 +10,7 @@ if (empty($_REQUEST['id'])) {
     if (!is_numeric($id_producto)) {
         header("Location: lista_productos.php");
     }
-    $query_producto = mysqli_query($conexion, "SELECT codproducto, descripcion, proveedor, precio, existencia FROM producto WHERE codproducto = $id_producto");
+    $query_producto = mysqli_query($conexion, "SELECT codproducto, descripcion, proveedor, precio, existencia FROM producto WHERE codproducto = $id_producto ");
     $result_producto = mysqli_num_rows($query_producto);
 
     if ($result_producto > 0) {

@@ -2,7 +2,7 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
+    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0 )) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
@@ -14,7 +14,8 @@
       $cantidad = $_POST['cantidad'];
       $usuario_id = $_SESSION['idUser'];
 
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(codigo, proveedor,descripcion,precio,existencia,usuario_id) values ('$codigo','$proveedor', '$producto', '$precio', '$cantidad','$usuario_id')");
+
+      $query_insert = mysqli_query($conexion, "INSERT INTO producto(codigo, proveedor,descripcion,precio,existencia,usuario_id,estado) values ('$codigo','$proveedor', '$producto', '$precio', '$cantidad','$usuario_id', 'A')");
       if ($query_insert) {
         $alert = '<div class="alert alert-success" role="alert">
                 Producto Registrado
@@ -33,7 +34,7 @@
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
+     <h1 class="h3 mb-0 text-gray-800">Nuevo Producto</h1>
      <a href="lista_productos.php" class="btn btn-primary">Regresar</a>
    </div>
 
@@ -84,6 +85,7 @@
                <label for="cantidad">Cantidad</label>
                <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
              </div>
+
              <input type="submit" value="Guardar Producto" class="btn btn-primary">
            </form>
          </div>
