@@ -152,7 +152,7 @@ if ($result_data > 0) {
 					</div>
 				</li>-->
 				<!-- Nav Item - Utilities Collapse Menu -->
-				<!-- <li class="nav-item">
+				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-hospital"></i>
 						<span>Proveedor</span>
@@ -164,7 +164,7 @@ if ($result_data > 0) {
 							<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
 						</div>
 					</div>
-				</li>-->
+				</li>
 				<?php if ($_SESSION['rol'] == 1) { ?>
 					<!-- Nav Item - Usuarios Collapse Menu -->
 					<li class="nav-item">
