@@ -66,8 +66,8 @@ if ($result_sql == 0) {
               <input type="text" placeholder="Ingrese proveedor" name="proveedor" class="form-control" id="proveedor" value="<?php echo $proveedor; ?>">
             </div>
             <div class="form-group">
-              <label for="nombre">Contacto</label>
-              <input type="text" placeholder="Ingrese contacto" name="contacto" class="form-control" id="contacto" value="<?php echo $contacto; ?>">
+              <label for="nombre">RUC</label>
+              <input type="text" placeholder="Ingrese RUC" name="contacto" class="form-control" id="contacto" value="<?php echo $contacto; ?>">
             </div>
             <div class="form-group">
               <label for="telefono">Teléfono</label>
