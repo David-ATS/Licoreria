@@ -20,16 +20,16 @@ include "../conexion.php";
 		$html = '';
 		$html .= '<table border="1">';
 		$html .= '<tr>';
-		$html .= '<td colspan="5">Reporte General de Ventas</tr>';
+		$html .= '<td align="center" colspan="5" bgcolor="#4023C4" ><font size ="4", color ="#ffffff">Reporte General de Ventas</tr>';
 		$html .= '</tr>';
 
 
 		$html .= '<tr>';
-		$html .= '<td><b>N° Factura</b></td>';
-		$html .= '<td><b>Fecha</b></td>';
-		$html .= '<td><b>Vendedor</b></td>';
-		$html .= '<td><b>Cliente</b></td>';
-		$html .= '<td><b>Total</b></td>';
+		$html .= '<td align="center" bgcolor="#B2CAEE"><b>N° Factura</b></td>';
+		$html .= '<td align="center" bgcolor="#B2CAEE"><b>Fecha</b></td>';
+		$html .= '<td align="center" bgcolor="#B2CAEE"><b>Vendedor</b></td>';
+		$html .= '<td align="center" bgcolor="#B2CAEE"><b>Cliente</b></td>';
+		$html .= '<td align="center" bgcolor="#B2CAEE"><b>Total</b></td>';
 		$html .= '</tr>';
 
 		//Seleccionar todos los elementos de la tabla
@@ -42,8 +42,12 @@ include "../conexion.php";
         ON A.usuario = C.idusuario
         ORDER BY A.fecha DESC";
 
+		$result_msg_contatos2 = 
+		"SELECT SUM(D.totalfactura) AS Total
+		FROM factura D";
 
 		$resultado_msg_contatos = mysqli_query($conexion, $result_msg_contatos);
+		$resultado_msg_contatos2 = mysqli_query($conexion, $result_msg_contatos2);
 
 		while ($row_msg_contatos = mysqli_fetch_assoc($resultado_msg_contatos)) {
 			$html .= '<tr>';
@@ -54,6 +58,14 @@ include "../conexion.php";
             $html .= '<td>' . $row_msg_contatos["totalfactura"] . '</td>';
 			$html .= '</tr>';;
 		}
+
+		while ($row_msg_contatos2 = mysqli_fetch_assoc($resultado_msg_contatos2)) {
+			$html .= '<tr>';
+			$html .= '<td colspan="2" align="center" bgcolor="red"><font size ="4", color ="#ffffff">TOTAL (S/.)</td>';
+			$html .= '<td colspan="3" align="center" bgcolor="red"><font size ="4", color ="#ffffff">' . $row_msg_contatos2["Total"] . '</td>';
+			$html .= '</tr>';;
+		}
+		
 		// Configuración en la cabecera
 		header("Expires: Mon, 26 Jul 2227 05:00:00 GMT");
 		header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
