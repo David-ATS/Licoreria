@@ -10,16 +10,17 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered" id="table">
-					<thead class="thead-dark">
+			<table align="center" style="width:1000px;color: #000000" class="table table-bordered table-hover"id="table">
+				<!-- <table align="center" style="width:1000px;color: #f4f5f4" class="table table-striped table-dark" id="table"> -->
+					<thead align="center" style="background-color: #000000;color: white">
 						<tr>
-							<th>Id</th>
-							<th>Fecha</th>
-							<th>Total</th>
-							<th>Acciones</th>
+							<th>ID</th>
+							<th>FECHA</th>
+							<th>TOTAL</th>
+							<th>ACCIONES</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody align="center">
 						<?php
 						require "../conexion.php";
 						$query = mysqli_query($conexion, "SELECT nofactura, fecha,codcliente, totalfactura, estado FROM factura ORDER BY nofactura DESC");
@@ -34,7 +35,7 @@
 									<td><?php echo $dato['fecha']; ?></td>
 									<td><?php echo $dato['totalfactura']; ?></td>
 									<td>
-										<button type="button" class="btn btn-primary view_factura" cl="<?php echo $dato['codcliente'];  ?>" f="<?php echo $dato['nofactura']; ?>">Ver</button>
+									<button type="button" class="btn btn-primary view_factura" cl="<?php echo $dato['codcliente'];  ?>" f="<?php echo $dato['nofactura']; ?>"><i class='fas fa-file-pdf'></i></button>
 									</td>
 								</tr>
 						<?php }

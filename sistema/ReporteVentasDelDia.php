@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
-			<div>
+			<div align="center">
 				<ul class="nav navbar-nav"><a href="ExcelReporteVentasDelDia.php">
 					<button style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">
 						<i class='fas fa-file-excel'></i>  Generar Excel
@@ -16,18 +16,19 @@
 			</div>
 
 			<div class="table-responsive">
-				<table align="center" style="width:auto" class="table table-striped table-bordered" id="table">
-					<thead class="thead-dark">
+			<table align="center" style="width:auto;color: #000000" class="table table-bordered table-hover"id="table">
+				<!-- <table align="center" style="width:auto;color: #f4f5f4" class="table table-striped table-dark" id="table"> -->
+					<thead align="center" style="background-color: #000000;color: white">
 						<tr style="height:auto">
-							<th style="width:140px">N° Factura</th>
-							<th style="width:250px">Fecha</th>
-							<th style="width:300px">Vendedor</th>
-							<th style="width:300px">Cliente</th>
-							<th style="width:250px">Total</th>
-							<th style="width:100px">Documento</th>
+							<th style="width:140px">N° FACTURA</th>
+							<th style="width:250px">FECHA</th>
+							<th style="width:300px">VENDEDOR</th>
+							<th style="width:300px">CLIENTE</th>
+							<th style="width:250px">TOTAL</th>
+							<th style="width:100px">DOCUMENTO</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody align="center">
 						<?php
 						require "../conexion.php";
 						$query = mysqli_query($conexion, 

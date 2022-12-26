@@ -70,7 +70,7 @@ if ($result_data > 0) {
 	}
 
 	?>
-	<header style="background-color:#000000" class="header">
+	<header style="background-color:#36474e" class="header">
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid d-flex align-items-center justify-content-between">
 				<div class="navbar-header">
@@ -89,14 +89,14 @@ if ($result_data > 0) {
 			</div>
 		</nav>
 	</header>
-	<div style="background-color:#FFE5D4" class="d-flex align-items-stretch">
+	<div style="background-color:#f4f5f4" class="d-flex align-items-stretch">
 		<!-- Sidebar Navigation-->
-		<nav style="background-color:#2A2A2A" id="sidebar">
+		<nav style="background-color:#263339" id="sidebar">
 			<!-- Sidebar Header-->
-			<div style="background-color:#2A2A2A"   class="sidebar-header d-flex align-items-center">
+			<div style="background-color:#263339;color: #f4f5f4"   class="sidebar-header d-flex align-items-center">
 				<div class="avatar"><img src="img/logo2.jpg" alt="..." class="img-fluid rounded-circle"></div>
 				<div class="title">
-					<h1 class="h5"><?php echo $_SESSION['nombre']; ?></h1>
+					<h1 style="color: #f4f5f4"; class="h5"><?php echo $_SESSION['nombre']; ?></h1>
 					<p><?php if ($_SESSION['rol'] == 1) {
 							echo "Administrador";
 						} else {
@@ -104,14 +104,15 @@ if ($result_data > 0) {
 						} ?></p>
 				</div>
 			</div>
-			<ul style="background-color:#2A2A2A" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+			<ul style="background-color:#263339" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 				<!-- Divider -->
 
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 						<i class="fas fa-fw fa-cog fa-spin fa-1x"></i>
-						<span>Ventas</span>
+						<span >Ventas</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -124,7 +125,7 @@ if ($result_data > 0) {
 
 				<!-- Nav Item - Productos Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fab fa-buffer fa-1x"></i>
 						<span> Productos</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
@@ -139,7 +140,7 @@ if ($result_data > 0) {
 
 				<!-- Nav Item - Clientes Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
+					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-users"></i>
 						<span>Clientes</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
@@ -153,7 +154,7 @@ if ($result_data > 0) {
 				</li>
 				<!-- Nav Item - Utilities Collapse Menu -->
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-hospital"></i>
 						<span>Proveedor</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
@@ -168,7 +169,7 @@ if ($result_data > 0) {
 				<?php if ($_SESSION['rol'] == 1) { ?>
 					<!-- Nav Item - Usuarios Collapse Menu -->
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true" >
+						<a style="color: #f4f5f4"; class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="true" >
 							<i class="fas fa-user"></i>
 							<span>Usuarios</span>
 							<i class="fas fa-angle-down fa-lg float-right"></i>
@@ -183,7 +184,7 @@ if ($result_data > 0) {
 				<?php } ?>
 
 				<li class="nav-item">
-					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes" aria-expanded="true" aria-controls="collapseUtilities">
+					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-fw fa-newspaper"></i>
 						<span>Reportes</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
@@ -199,7 +200,7 @@ if ($result_data > 0) {
 				</li>
 
 				<li class="nav-item fa-1x">
-					<a class="nav-link" href="configuracion.php" aria-expanded="true">
+					<a style="color: #f4f5f4"; class="nav-link" href="configuracion.php" aria-expanded="true">
 						<i class="fas fa-tools fa-spin fa-1x"></i>
 						<span>CONFIGURACIÓN</span>
 					</a>

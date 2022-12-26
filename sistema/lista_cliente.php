@@ -13,8 +13,9 @@
 		<div class="col-lg-12">
 
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered" id="table">
-					<thead class="thead-dark">
+			<table align="center" style="width:1500px;color: #000000" class="table table-bordered table-hover"id="table">
+				<!-- <table align="center" style="width:1500px;color: #f4f5f4" class="table table-striped table-dark" id="table"> -->
+					<thead align="center" style="background-color: #000000;color: white">
 						<tr>
 							<th>ID</th>
 							<th>DNI</th>
@@ -26,7 +27,7 @@
 							<?php } ?>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody align="center">
 						<?php
 						include "../conexion.php";
 
