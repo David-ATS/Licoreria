@@ -1,12 +1,18 @@
 <?php include_once "includes/header.php"; ?>
 
 <div class="container-fluid">
-
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Reporte General de Ventas</h1>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
+			<div>
+				<ul class="nav navbar-nav"><a href="ExcelReporteGeneral.php">
+					<button style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">
+						<i class='fas fa-file-excel'></i>  Generar Excel
+					</button>
+				</a></ul>
+			</div>
 			<div class="table-responsive">
 				<table align="center" style="width:auto" class="table table-striped table-bordered" id="table">
 					<thead class="thead-dark">
