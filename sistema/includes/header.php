@@ -181,6 +181,23 @@ if ($result_data > 0) {
 						</div>
 					</li>
 				<?php } ?>
+
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes" aria-expanded="true" aria-controls="collapseUtilities">
+						<i class="fas fa-fw fa-wrench"></i>
+						<span>Reportes</span>
+						<i class="fas fa-angle-down fa-lg float-right"></i>
+					</a>
+					<div id="collapseReportes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="ReporteProductosMasVendidos.php">Productos Más Vendidos</a>
+							<a class="collapse-item" href="ReporteVentasPorDia.php">Ventas por día</a>
+							<a class="collapse-item" href="ReporteGeneral.php">Reporte General de Ventas</a>
+							<a class="collapse-item" href="ReporteStock.php">Reporte de Stock</a>
+						</div>
+					</div>
+				</li>
+
 				<li class="nav-item">
 					<a class="nav-link" href="configuracion.php" aria-expanded="true">
 						<i class="fas fa-tools"></i>
