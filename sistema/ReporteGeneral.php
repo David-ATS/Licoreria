@@ -60,7 +60,7 @@
 											<td></td>
 											<td></td>
 											<td></td>
-											<td align="center" bgcolor="red"><font size ="5", color ="#ffffff">TOTAL</font></td>
+											<td align="center" bgcolor="red"><font size ="5", color ="#ffffff">TOTAL (S/.)</font></td>
 											<td align="center" bgcolor="red"><font size ="5", color ="#ffffff"><?php echo $dato['Total']; ?></font></td>
 										</tr>
 							<?php }

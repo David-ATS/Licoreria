@@ -32,6 +32,12 @@
                             WHERE A.fecha >= CURDATE()
 							ORDER BY A.fecha DESC
 						");
+
+						$query2 = mysqli_query($conexion, 
+							"SELECT SUM(D.totalfactura) AS Total 
+							FROM factura D
+							WHERE D.fecha >= CURDATE()
+						");
 						mysqli_close($conexion);
 						$cli = mysqli_num_rows($query);
 
@@ -49,6 +55,19 @@
 									</td>
 								</tr>
 							<?php }
+
+
+							while ($dato = mysqli_fetch_array($query2)) {
+								?>
+										<tr style="height:auto">
+											<td></td>
+											<td></td>
+											<td></td>
+											<td align="center" bgcolor="red"><font size ="5", color ="#ffffff">TOTAL (S/.)</font></td>
+											<td align="center" bgcolor="red"><font size ="5", color ="#ffffff"><?php echo $dato['Total']; ?></font></td>
+										</tr>
+							<?php }
+
 						} ?>
 					</tbody>
 				</table>
