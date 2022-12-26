@@ -110,7 +110,7 @@ if ($result_data > 0) {
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-						<i class="fas fa-fw fa-cog"></i>
+						<i class="fas fa-fw fa-cog fa-spin fa-1x"></i>
 						<span>Ventas</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
@@ -125,8 +125,8 @@ if ($result_data > 0) {
 				<!-- Nav Item - Productos Collapse Menu -->
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-						<i class="fas fa-fw fa-wrench"></i>
-						<span>Productos</span>
+						<i class="fab fa-buffer fa-1x"></i>
+						<span> Productos</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -184,7 +184,7 @@ if ($result_data > 0) {
 
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes" aria-expanded="true" aria-controls="collapseUtilities">
-						<i class="fas fa-fw fa-wrench"></i>
+						<i class="fas fa-fw fa-newspaper"></i>
 						<span>Reportes</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
@@ -198,10 +198,10 @@ if ($result_data > 0) {
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item fa-1x">
 					<a class="nav-link" href="configuracion.php" aria-expanded="true">
-						<i class="fas fa-tools"></i>
-						<span>Configuración</span>
+						<i class="fas fa-tools fa-spin fa-1x"></i>
+						<span>CONFIGURACIÓN</span>
 					</a>
 				</li>
 
