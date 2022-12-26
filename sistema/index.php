@@ -11,7 +11,7 @@
 
 		<!-- Earnings (Monthly) Card Example -->
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_usuarios.php">
-			<div class="card border-left-primary shadow h-100 py-2 bg-black">
+			<div class="card border-left-primary shadow h-100 py-2 bg-white">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
@@ -28,7 +28,7 @@
 
 		<!-- Earnings (Monthly) Card Example -->
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_cliente.php">
-			<div class="card border-left-success shadow h-100 py-2 bg-black">
+			<div class="card border-left-success shadow h-100 py-2 bg-white">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
@@ -45,7 +45,7 @@
 
 		<!-- Earnings (Monthly) Card Example -->
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_productos.php">
-			<div class="card border-left-info shadow h-100 py-2 bg-black">
+			<div class="card border-left-info shadow h-100 py-2 bg-white">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
@@ -71,7 +71,7 @@
 
 		<!-- Pending Requests Card Example -->
 		<a class="col-xl-3 col-md-6 mb-4" href="ventas.php">
-			<div class="card border-left-warning bg-black shadow h-100 py-2">
+			<div class="card border-left-warning bg-white shadow h-100 py-2">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
