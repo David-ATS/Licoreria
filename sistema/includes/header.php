@@ -70,7 +70,7 @@ if ($result_data > 0) {
 	}
 
 	?>
-	<header class="header">
+	<header style="background-color:#000000" class="header">
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid d-flex align-items-center justify-content-between">
 				<div class="navbar-header">
@@ -89,11 +89,11 @@ if ($result_data > 0) {
 			</div>
 		</nav>
 	</header>
-	<div class="d-flex align-items-stretch">
+	<div style="background-color:#FFE5D4" class="d-flex align-items-stretch">
 		<!-- Sidebar Navigation-->
-		<nav id="sidebar">
+		<nav style="background-color:#2A2A2A" id="sidebar">
 			<!-- Sidebar Header-->
-			<div class="sidebar-header d-flex align-items-center">
+			<div style="background-color:#2A2A2A"   class="sidebar-header d-flex align-items-center">
 				<div class="avatar"><img src="img/logo2.jpg" alt="..." class="img-fluid rounded-circle"></div>
 				<div class="title">
 					<h1 class="h5"><?php echo $_SESSION['nombre']; ?></h1>
@@ -104,7 +104,7 @@ if ($result_data > 0) {
 						} ?></p>
 				</div>
 			</div>
-			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+			<ul style="background-color:#2A2A2A" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 				<!-- Divider -->
 
 				<!-- Nav Item - Pages Collapse Menu -->
