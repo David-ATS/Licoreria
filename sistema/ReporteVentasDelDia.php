@@ -3,7 +3,7 @@
 <div class="container-fluid">
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Ventas Por Día</h1>
+		<h1 class="h3 mb-0 text-gray-800">Ventas Del Día</h1>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
@@ -37,7 +37,7 @@
 
 						if ($cli > 0) {
 							while ($dato = mysqli_fetch_array($query)) {
-						?>
+							?>
 								<tr style="height:auto">
 									<td><?php echo $dato['nofactura']; ?></td>
 									<td><?php echo $dato['fecha']; ?></td>
@@ -48,7 +48,7 @@
 										<button type="button" class="btn btn-primary view_factura" cl="<?php echo $dato['codcliente'];  ?>" f="<?php echo $dato['nofactura']; ?>"><i class='fas fa-file-pdf'></i></button>
 									</td>
 								</tr>
-						<?php }
+							<?php }
 						} ?>
 					</tbody>
 				</table>

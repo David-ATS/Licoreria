@@ -191,7 +191,7 @@ if ($result_data > 0) {
 					<div id="collapseReportes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<a class="collapse-item" href="ReporteProductosMasVendidos.php">Productos Más Vendidos</a>
-							<a class="collapse-item" href="ReporteVentasPorDia.php">Ventas por día</a>
+							<a class="collapse-item" href="ReporteVentasDelDia.php">Ventas del día</a>
 							<a class="collapse-item" href="ReporteGeneral.php">Reporte General de Ventas</a>
 							<a class="collapse-item" href="ReporteStock.php">Reporte de Stock</a>
 						</div>
