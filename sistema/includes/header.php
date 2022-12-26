@@ -138,7 +138,7 @@ if ($result_data > 0) {
 				</li>
 
 				<!-- Nav Item - Clientes Collapse Menu -->
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-users"></i>
 						<span>Clientes</span>
@@ -150,7 +150,7 @@ if ($result_data > 0) {
 							<a class="collapse-item" href="lista_cliente.php">Clientes</a>
 						</div>
 					</div>
-				</li>
+				</li>-->
 				<!-- Nav Item - Utilities Collapse Menu -->
 				<li class="nav-item">
 					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
