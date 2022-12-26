@@ -53,7 +53,7 @@ if ($result_data > 0) {
 	<!-- Custom stylesheet - for your changes-->
 	<link rel="stylesheet" href="css/custom.css">
 	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.png">
 	<!-- Tweaks for older IEs-->
 	<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -70,7 +70,7 @@ if ($result_data > 0) {
 	}
 
 	?>
-	<header style="background-color:#36474e" class="header">
+	<header style="background-color:#232322" class="header">
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid d-flex align-items-center justify-content-between">
 				<div class="navbar-header">
@@ -91,9 +91,9 @@ if ($result_data > 0) {
 	</header>
 	<div style="background-color:#f4f5f4" class="d-flex align-items-stretch">
 		<!-- Sidebar Navigation-->
-		<nav style="background-color:#263339" id="sidebar">
+		<nav style="background-color:#384755" id="sidebar">
 			<!-- Sidebar Header-->
-			<div style="background-color:#263339;color: #f4f5f4"   class="sidebar-header d-flex align-items-center">
+			<div style="background-color:#384755;color: #f4f5f4"   class="sidebar-header d-flex align-items-center">
 				<div class="avatar"><img src="img/logo2.jpg" alt="..." class="img-fluid rounded-circle"></div>
 				<div class="title">
 					<h1 style="color: #f4f5f4"; class="h5"><?php echo $_SESSION['nombre']; ?></h1>
@@ -105,7 +105,7 @@ if ($result_data > 0) {
 				</div>
 			</div>
 
-			<ul style="background-color:#263339" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+			<ul style="background-color:#384755" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 				<!-- Divider -->
 
 				<!-- Nav Item - Pages Collapse Menu -->
@@ -115,8 +115,9 @@ if ($result_data > 0) {
 						<span >Ventas</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
-					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
+					<div  id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 							<a class="collapse-item" href="nueva_venta.php">Nueva venta</a>
 							<a class="collapse-item" href="ventas.php">Ventas</a>
 						</div>
@@ -131,7 +132,8 @@ if ($result_data > 0) {
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
+						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 							<a class="collapse-item" href="registro_producto.php">Nuevo Producto</a>
 							<a class="collapse-item" href="lista_productos.php">Productos</a>
 						</div>
@@ -146,7 +148,8 @@ if ($result_data > 0) {
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
+						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 							<a class="collapse-item" href="registro_cliente.php">Nuevo Clientes</a>
 							<a class="collapse-item" href="lista_cliente.php">Clientes</a>
 						</div>
@@ -160,7 +163,8 @@ if ($result_data > 0) {
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
+						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 							<a class="collapse-item" href="registro_proveedor.php">Nuevo Proveedor</a>
 							<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
 						</div>
@@ -175,7 +179,8 @@ if ($result_data > 0) {
 							<i class="fas fa-angle-down fa-lg float-right"></i>
 						</a>
 						<div id="collapseUsuarios" class="collapse">
-							<div class="bg-white py-2 collapse-inner">
+							<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+							<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 								<a class="collapse-item" href="registro_usuario.php">Nuevo Usuario</a>
 								<a class="collapse-item" href="lista_usuarios.php">Usuarios</a>
 							</div>
@@ -189,8 +194,10 @@ if ($result_data > 0) {
 						<span>Reportes</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
+
 					<div id="collapseReportes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
+						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
+						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
 							<a class="collapse-item" href="ReporteVentasDelDia.php">Ventas del día</a>
 							<a class="collapse-item" href="ReporteGeneral.php">Reporte General de Ventas</a>
 							<a class="collapse-item" href="ReporteStock.php">Reporte de Stock</a>
