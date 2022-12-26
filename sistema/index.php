@@ -1,15 +1,15 @@
 <?php include_once "includes/header.php"; ?>
 
 <div class="container-fluid">
-	<!-- Page Heading -->
+
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
 	</div>
 
-	<!-- Content Row -->
+
 	<div class="row">
 
-		<!-- Earnings (Monthly) Card Example -->
+
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_usuarios.php">
 			<div class="card border-left-primary shadow h-100 py-2 bg-black">
 				<div class="card-body">
@@ -25,8 +25,7 @@
 				</div>
 			</div>
 		</a>
-
-		<!-- Earnings (Monthly) Card Example -->
+	
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_cliente.php">
 			<div class="card border-left-success shadow h-100 py-2 bg-black">
 				<div class="card-body">
@@ -42,8 +41,9 @@
 				</div>
 			</div>
 		</a>
+	</div>
 
-		<!-- Earnings (Monthly) Card Example -->
+	<div class="row">
 		<a class="col-xl-3 col-md-6 mb-4" href="lista_productos.php">
 			<div class="card border-left-info shadow h-100 py-2 bg-black">
 				<div class="card-body">
@@ -69,7 +69,7 @@
 			</div>
 		</a>
 
-		<!-- Pending Requests Card Example -->
+		
 		<a class="col-xl-3 col-md-6 mb-4" href="ventas.php">
 			<div class="card border-left-warning bg-black shadow h-100 py-2">
 				<div class="card-body">
@@ -85,6 +85,8 @@
 				</div>
 			</div>
 		</a>
+
+		<!-- 
 		<div class="col-lg-6">
 			<div class="au-card m-b-30">
 				<div class="au-card-inner">
@@ -101,8 +103,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
+		 -->
+
+	</div>
 
 </div>
 
