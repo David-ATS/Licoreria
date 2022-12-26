@@ -5,7 +5,8 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
+		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Ventas</h1>
+		<a href="registro_venta.php" style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">Nuevo</a>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">

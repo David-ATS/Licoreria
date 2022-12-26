@@ -41,8 +41,8 @@ if (!empty($_POST)) {
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
-        <a href="lista_usuarios.php" class="btn btn-primary">Regresar</a>
+        <h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Nuevo Usuario</h1>
+        <a href="lista_usuarios.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
     </div>
 
     <!-- Content Row -->

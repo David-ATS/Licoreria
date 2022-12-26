@@ -111,15 +111,15 @@ if ($result_data > 0) {
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
 					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-						<i class="fas fa-fw fa-cog fa-spin fa-1x"></i>
+						<i class="fas fa-fw fa-cog fa-1x"></i>
 						<span >Ventas</span>
 						<i class="fas fa-angle-down fa-lg float-right"></i>
 					</a>
 					<div  id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
 						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
-							<a class="collapse-item" href="nueva_venta.php">Nueva venta</a>
-							<a class="collapse-item" href="ventas.php">Ventas</a>
+							<a class="collapse-item" href="registro_venta.php">Nueva venta</a>
+							<a class="collapse-item" href="lista_ventas.php">Ventas</a>
 						</div>
 					</div>
 				</li>
@@ -208,7 +208,7 @@ if ($result_data > 0) {
 
 				<li class="nav-item fa-1x">
 					<a style="color: #f4f5f4"; class="nav-link" href="configuracion.php" aria-expanded="true">
-						<i class="fas fa-tools fa-spin fa-1x"></i>
+						<i class="fas fa-tools fa-1x"></i>
 						<span>CONFIGURACIÓN</span>
 					</a>
 				</li>
