@@ -42,16 +42,15 @@ if (!empty($_POST)) {
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Nuevo Usuario</h1>
-        <a href="lista_usuarios.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        <!--
+            <a href="lista_usuarios.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        -->
     </div>
-
+    <link href="CSS/botones.css" rel="stylesheet">
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
             <div class="card">
-                <div class="card-header bg-primary">
-                    Nuevo Usuario
-                </div>
                 <div class="card-body">
                     <form action="" method="post" autocomplete="off">
                         <?php echo isset($alert) ? $alert : ''; ?>
@@ -90,7 +89,10 @@ if (!empty($_POST)) {
                                 ?>
                             </select>
                         </div>
-                        <input type="submit" value="Guardar Usuario" class="btn btn-primary">
+                        <div class="boton">
+                            <button type="submit" class="guardar">Guardar</button>
+                            <a href="lista_usuarios.php" type="button" class="cancelar">Cancelar</a>
+                        </div>
                     </form>
                 </div>
             </div>

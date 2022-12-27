@@ -49,14 +49,14 @@ if ($result_sql == 0) {
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Editar Proveedor: <input style="width: 500px;" value="<?php echo $proveedor; ?>" disabled></h1>
+	</div>
+  <link href="CSS/botones.css" rel="stylesheet">
   <div class="row">
     <div class="col-lg-6 m-auto">
 
       <div class="card">
-        <div class="card-header bg-primary">
-          Modificar Proveedor
-        </div>
         <div class="card-body">
           <?php echo isset($alert) ? $alert : ''; ?>
           <form class="" action="" method="post">
@@ -77,8 +77,10 @@ if ($result_sql == 0) {
               <label for="direccion">Dirección</label>
               <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
             </div>
-
-            <input type="submit" value="Editar Proveedor" class="btn btn-primary">
+            <div class="boton">
+              <button type="submit" class="guardar">Guardar</button>
+              <a href="lista_proveedor.php" type="button" class="cancelar">Cancelar</a>
+            </div>
           </form>
         </div>
       </div>

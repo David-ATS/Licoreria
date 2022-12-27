@@ -44,15 +44,16 @@ mysqli_close($conexion);
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Nuevo Proveedor</h1>
-        <a href="lista_proveedor.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        <!--
+            <a href="lista_proveedor.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        -->
     </div>
+    <link href="CSS/botones.css" rel="stylesheet">
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
-            <div class="card-header bg-primary text-white">
-                Registro de Proveedor
-            </div>
             <div class="card">
+            <div class="card-body">
                 <form action="" autocomplete="off" method="post" class="card-body p-2">
                     <?php echo isset($alert) ? $alert : ''; ?>
                     <div class="form-group">
@@ -61,19 +62,22 @@ mysqli_close($conexion);
                     </div>
                     <div class="form-group">
                         <label for="contacto">RUC</label>
-                        <input type="text" placeholder="Ingrese nombre del contacto" name="contacto" id="contacto" class="form-control">
+                        <input type="number" placeholder="Ingrese nombre del contacto" name="contacto" id="contacto" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="telefono">TELÉFONO</label>
                         <input type="number" placeholder="Ingrese teléfono" name="telefono" id="telefono" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="direccion">DIRECIÓN</label>
+                        <label for="direccion">DIRECCIÓN</label>
                         <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direcion" class="form-control">
                     </div>
-                    <input type="submit" value="Guardar Proveedor" class="btn btn-primary">
-                    <a href="lista_proveedor.php" class="btn btn-danger">Regresar</a>
+                    <div class="boton">
+                        <button type="submit" class="guardar">Guardar</button>
+                        <a href="lista_proveedor.php" type="button" class="cancelar">Cancelar</a>
+                    </div>
                 </form>
+                </div>
             </div>
         </div>
     </div>

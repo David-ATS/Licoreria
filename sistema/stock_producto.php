@@ -49,13 +49,13 @@ if (!empty($_POST)) {
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Actualizar Stock Producto: <input style="width: 500px;" value="<?php echo $data_producto['descripcion']; ?>" disabled></h1>
+	</div>
+  <link href="CSS/botones.css" rel="stylesheet">
     <div class="row">
         <div class="col-lg-6 m-auto">
             <div class="card">
-                <div class="card-header bg-primary">
-                    Agregar Producto
-                </div>
                 <div class="card-body">
                     <form action="" method="post">
                         <?php echo isset($alert) ? $alert : ''; ?>
@@ -73,11 +73,13 @@ if (!empty($_POST)) {
                         </div>
                         <div class="form-group">
                             <label for="cantidad">Agregar Cantidad</label>
-                            <input type="number" placeholder="Ingrese cantidad" name="cantidad" id="cantidad" class="form-control">
+                            <input type="number" placeholder="Ingrese cantidad" name="cantidad" id="cantidad" class="form-control" value="<?php echo $data_producto['existencia']; ?>">
                         </div>
 
-                        <input type="submit" value="Actualizar" class="btn btn-primary">
-                        <a href="lista_productos.php" class="btn btn-danger">Regresar</a>
+                        <div class="boton">
+                            <button type="submit" class="guardar">Actualizar</button>
+                            <a href="lista_productos.php" type="button" class="cancelar">Regresar</a>
+                        </div>
                     </form>
                 </div>
             </div>

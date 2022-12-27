@@ -2,11 +2,12 @@
 include "../conexion.php";
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
+    if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion']) || empty($_POST['dni'])) {
         $alert = '<div class="alert alert-danger" role="alert">
-                                    Todo los campos son obligatorio
-                                </div>';
-    } else {
+                                    Todo los campos son obligatorios
+                </div>';
+    } 
+    else {
         $dni = $_POST['dni'];
         $nombre = $_POST['nombre'];
         $telefono = $_POST['telefono'];
@@ -45,22 +46,21 @@ if (!empty($_POST)) {
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Nuevo Cliente</h1>
-        <a href="lista_cliente.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        <!--
+            <a href="lista_cliente.php" style ="background-color:#4594cc;border-color:#4594cc; color:white; width:170px" type="button" class="btn btn-primary">Regresar</a>
+        -->
     </div>
-
+    <link href="CSS/botones.css" rel="stylesheet">
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
             <div class="card">
-                <div class="card-header bg-primary">
-                    Nuevo Cliente
-                </div>
                 <div class="card-body">
                     <form action="" method="post" autocomplete="off">
                         <?php echo isset($alert) ? $alert : ''; ?>
                         <div class="form-group">
                             <label for="dni">Dni</label>
-                            <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
+                            <input type="number" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -74,7 +74,10 @@ if (!empty($_POST)) {
                             <label for="direccion">Dirección</label>
                             <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
                         </div>
-                        <input type="submit" value="Guardar Cliente" class="btn btn-primary">
+                        <div class="boton">
+                            <button type="submit" class="guardar">Guardar</button>
+                            <a href="lista_productos.php" type="button" class="cancelar">Cancelar</a>
+                        </div>
                     </form>
                 </div>
             </div>

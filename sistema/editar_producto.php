@@ -48,14 +48,13 @@ if (empty($_REQUEST['id'])) {
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Editar Producto: <input style="width: 500px;" value="<?php echo $data_producto['descripcion']; ?>" disabled></h1>
+	</div>
+  <link href="CSS/botones.css" rel="stylesheet">
   <div class="row">
     <div class="col-lg-6 m-auto">
-
       <div class="card">
-        <div class="card-header bg-primary text-white">
-          Modificar producto
-        </div>
         <div class="card-body">
           <form action="" method="post">
             <?php echo isset($alert) ? $alert : ''; ?>
@@ -99,7 +98,10 @@ if (empty($_REQUEST['id'])) {
                   <option value="I">I</option>
                </select>
            </div>
-            <input type="submit" value="Actualizar Producto" class="btn btn-primary">
+           <div class="boton">
+              <button type="submit" class="guardar">Guardar</button>
+              <a href="lista_productos.php" type="button" class="cancelar">Cancelar</a>
+            </div>
           </form>
         </div>
       </div>

@@ -1,8 +1,9 @@
-<?php include_once "includes/header.php";
+<?php 
+include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
+  if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion']) || empty($_POST['dni'])) {
     $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
   } else {
     $idcliente = $_POST['id'];
@@ -57,20 +58,20 @@ if ($result_sql == 0) {
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Editar Cliente: <input style="width: 500px;" value="<?php echo $nombre; ?>" disabled></h1>
+	</div>
+<link href="CSS/botones.css" rel="stylesheet">
   <div class="row">
     <div class="col-lg-6 m-auto">
       <div class="card">
-        <div class="card-header bg-primary">
-          Modificar Cliente
-        </div>
         <div class="card-body">
           <form class="" action="" method="post">
             <?php echo isset($alert) ? $alert : ''; ?>
             <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
             <div class="form-group">
               <label for="dni">Dni</label>
-              <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
+              <input type="number" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
             </div>
             <div class="form-group">
               <label for="nombre">Nombre</label>
@@ -84,7 +85,10 @@ if ($result_sql == 0) {
               <label for="direccion">Dirección</label>
               <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
             </div>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
+            <div class="boton">
+              <button type="submit" class="guardar">Guardar</button>
+              <a href="lista_cliente.php" type="button" class="cancelar">Cancelar</a>
+            </div>
           </form>
         </div>
       </div>

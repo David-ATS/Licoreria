@@ -42,7 +42,7 @@
 									<td><?php echo $data['estado']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
+										<a href="stock_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
 										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
