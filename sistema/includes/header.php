@@ -187,7 +187,8 @@ if ($result_data > 0) {
 						</div>
 					</li>
 				<?php } ?>
-
+				
+				<?php if ($_SESSION['rol'] == 1) { ?>
 				<li class="nav-item">
 					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-fw fa-newspaper"></i>
@@ -205,7 +206,8 @@ if ($result_data > 0) {
 						</div>
 					</div>
 				</li>
-
+				<?php } ?>
+				
 				<li class="nav-item">
 					<a style="color: #f4f5f4"; class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true" aria-controls="collapseUtilities">
 						<i class="fas fa-tools fa-1x"></i>
@@ -216,8 +218,12 @@ if ($result_data > 0) {
 					<div id="collapseConfiguracion" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 						<div style="background-color:#2b353c; color: #f4f5f4"; class="py-2 collapse-inner rounded">
 						<!-- <div class="bg-white py-2 collapse-inner rounded"> -->
-							<a class="collapse-item" href="configuracion.php">Datos Personales</a>
+							<a class="collapse-item" href="DatosPersonales.php">Datos Personales</a>
+							<a class="collapse-item" href="DatosEmpresa.php">Datos Empresa</a>
+
+							<?php if ($_SESSION['rol'] == 1) { ?>
 							<a class="collapse-item" href="superusuario.php"><i class="fas fa-database fa-1x"></i>&nbsp;&nbsp;Superusuario</a>
+							<?php } ?>
 						</div>
 					</div>
 				</li>
