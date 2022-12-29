@@ -6,7 +6,8 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 style="color: #000000"; class="h3 mb-0 text-gray-800">Maestro de Clientes</h1>
-		<a href="registro_cliente.php" style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">Nuevo</a>
+		<!--<a href="registro_cliente.php" style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">Nuevo</a>-->
+		<a href="indexCliente.php" style ="background-color:#3CB032;border-color:#3CB032; color:white; width:170px" type="button" class="btn btn-primary">Nuevo</a>
 	</div>
 
 	<div class="row">
@@ -44,7 +45,8 @@
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
-										<form action="eliminar_cliente.php?id=<?php echo $data['idcliente']; ?>" method="post" class="confirmar d-inline">
+										<form action="eliminar_cliente.php" method="post" class="confirmar d-inline">
+											<input type="hidden" value="<?php echo $data['idcliente']; ?>" name="id">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
 									</td>
