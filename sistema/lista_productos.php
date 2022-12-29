@@ -46,9 +46,6 @@
 
 										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<!--<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>-->
 									</td>
 										<?php } ?>
 								</tr>
