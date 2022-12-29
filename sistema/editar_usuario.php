@@ -80,6 +80,11 @@ if ($result_sql == 0) {
                                     echo "selected";
                                   }
                                   ?>>Vendedor</option>
+                <option value="4" <?php
+                                  if ($rol == 4) {
+                                    echo "selected";
+                                  }
+                                  ?>>Cajero</option>
               </select>
             </div>
             <div class="boton">

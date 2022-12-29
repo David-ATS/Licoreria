@@ -45,10 +45,10 @@
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
-										<form action="eliminar_cliente.php" method="post" class="confirmar d-inline">
-											<input type="hidden" value="<?php echo $data['idcliente']; ?>" name="id">
+										<form action="eliminar_cliente.php?id=<?php echo $data['idcliente']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
+
 									</td>
 									<?php } ?>
 								</tr>

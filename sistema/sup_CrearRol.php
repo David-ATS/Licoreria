@@ -86,8 +86,8 @@ if (!empty($_POST)) {
 						<td><?php echo $data['idrol']; ?></td>
 						<td><?php echo $data['rol']; ?></td>
 						<td>
-							<a href="sup_editar_rol.php?idrol=<?php echo $data['idrol']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
-                            <form action="sub_EliminarRol.php?idrol=<?php echo $data['idrol']; ?>" method="post" class="confirmar d-inline">
+							<a href="sup_editar_rol.php?id=<?php echo $data['idrol']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
+                            <form action="sub_EliminarRol.php?id=<?php echo $data['idrol']; ?>" method="post" class="confirmar d-inline">
 								<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 							</form>
 						</td>

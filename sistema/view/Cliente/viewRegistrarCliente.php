@@ -45,7 +45,7 @@ class viewRegistrarCliente{
                         </div>
                         <div class="boton">
                             <button type="submit" class="guardar">Guardar</button>
-                            <a href="lista_productos.php" type="button" class="cancelar">Cancelar</a>
+                            <a href="lista_cliente.php" type="button" class="cancelar">Cancelar</a>
                         </div>
                     </form>
                 </div>
