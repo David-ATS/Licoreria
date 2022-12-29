@@ -22,7 +22,7 @@ if (!empty($_POST)) {
                         El correo ya existe
                     </div>';
         } else {
-            $query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave,rol) values ('$nombre', '$email', '$user', '$clave', '$rol')");
+            $query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave,rol,estado) values ('$nombre', '$email', '$user', '$clave', '$rol', 'A')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
                             Usuario registrado
