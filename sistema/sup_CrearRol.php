@@ -66,7 +66,7 @@ if (!empty($_POST)) {
         </div>
     </div>
 
-
+    <?php echo isset($alert2) ? $alert2 : ''; ?>
     <table align="center" style="width:1000px;color: #000000" class="table-bordered table-hover">
 		<thead align="center" style="background-color: #000000;color: white">
 			<tr>
